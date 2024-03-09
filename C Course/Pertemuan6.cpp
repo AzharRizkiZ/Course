@@ -18,16 +18,21 @@ using namespace std;
 
 string g_str_nama;
 
-string fs_str_nama(string l_str_nama) {
+//Fungsi itu adalah sebuah pecahan program, digunakan ketika dibutuhkan
+//saja jika program terlalu panjang
+
+string fs_str_inputNama(string l_str_nama) {
 	
 	cout<<"Masukkan Nama: "<<ends;
 	getline(cin, l_str_nama);
 	
 	return l_str_nama;
+	
 }
 
 void fs_banner()  {
 	cout<<"- Program Perulangan -"<<endl;
+	cout<<"- By Siapa           -"<<endl;
 }
 
 //WHILE digunakan ketika kondisi perulangannya jumlahnya tidak diketahui
@@ -36,9 +41,9 @@ void fs_banner()  {
 /* Fungsi Utama untuk Menjalankan Program */
 int main(void) {
 	
-	fs_banner();
+	fs_banner(); //cout<<"- Program Perulangan -"<<endl;
 	
-    g_str_nama = "Azhar R";
+    g_str_nama = fs_str_nama(g_str_nama);
 	
 	/*
 	Penulisan while ([Kondisi]) {
