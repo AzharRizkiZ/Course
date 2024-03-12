@@ -2,8 +2,8 @@
 //2 OPERASI ARITMATIKA
 //3 IF ELSE
 //4 While & For Min: Nasyifa
-//5 Fungsi Min: Nasyifa & Keyra
-//6 Fungsi Rekursif & Struct & Union & List
+//5 Fungsi & Struct Min: Nasyifa & Keyra
+//6 Fungsi Rekursif & Union & List
 //7 Rekap Materi Min: Keyra & Fathih
 //8 Ujian/Materi
 
