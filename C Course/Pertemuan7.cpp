@@ -43,7 +43,7 @@ int main(void) {
 	
 	fs_banner(); //cout<<"- Program Perulangan -"<<endl;
 	
-    g_str_nama = fs_str_nama(g_str_nama);
+    	g_str_nama = fs_str_nama(g_str_nama);
 	
 	/*
 	Penulisan while ([Kondisi]) {
