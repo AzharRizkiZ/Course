@@ -9,8 +9,8 @@ Deklarasi variabel angka_1 (int), angka_2 (int), angka_3 (int), hasil (int)
 Fungsi Utama (menggunakan keyword int main())
 
 Tampilkan Menu Pertama
-1 Kalkulasi 2 Nilai
-2 Kalkulasi 3 Nilai
+1 Perhitungan 2 Nilai
+2 Perhitungan 3 Nilai
 
 Isi Variabel menu_angka1 dengan inputan dari user
 
