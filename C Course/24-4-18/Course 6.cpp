@@ -1,11 +1,3 @@
-#include <math.h>
-#include <iostream>
-#include <stdio.h>
-using namespace std;
-
-#define FALSE 0
-#define TRUE 1
-
 //Dalam Bahasa C/C++ tidak ada yang namanya tipe data boolean
 //tipe data yang paling kuno di C/C++ adalah tipe data angka
 //string = char[] (char yang berbentuk list)
@@ -49,34 +41,136 @@ Untuk Mendeklarasikan sebuah fungsi berikut contohnya:
 	return [Nilai Kembalian];
 }
 
+Void merupakan fungsi yang tidak memiliki nilai kembalian
+
+//Initial Value pada Parameter/Default Parameter,
+//Dibutuhkan ketika argumen yang diberikan pada fungsi berupa Null (Tidak Punya Nilai)
+//Mencegah terjadinya NullPointerException
+
 */
 
+#define FALSE 0
+#define TRUE 1
+
 float g_flt_nilai1, g_flt_nilai2, g_flt_hasil;
+string g_str_menu;
+int g_int_status = TRUE;
 
-float fg_flt_tambah(float l_flt_nilai1 = 0, float l_flt_nilai2 = 0) { //Initial Value pada Parameter/Default Parameter,
-                                                                      //Dibutuhkan ketika argumen yang diberikan pada fungsi berupa Null (Tidak Punya Nilai)
-                                                                      //Mencegah terjadinya NullPointerException
-	float l_flt_hasil = l_flt_nilai1 + l_flt_nilai2;
-	
-	return l_flt_hasil;
-}
+void fg_inputNilai() { //NULL
 
-int main() {
-    
-    cout<<"Masukkan Angka 1: ";
+	cout<<"Masukkan Angka 1: ";
     cin>>g_flt_nilai1;
     
     cout<<"Masukkan Angka 2: ";
     cin>>g_flt_nilai2;
     
-    g_flt_hasil = sqrt(91);
+}
+
+float fg_flt_tambah(float l_flt_nilai1 = 0, float l_flt_nilai2 = 0) {
+	
+	float l_flt_hasil = l_flt_nilai1 + l_flt_nilai2;
+	
+	return l_flt_hasil;
+}
+
+float fg_flt_kurang(float l_flt_nilai1 = 0, float l_flt_nilai2 = 0) {
+	
+	float l_flt_hasil = l_flt_nilai1 - l_flt_nilai2;
+	
+	return l_flt_hasil;
+}
+
+float fg_flt_kali(float l_flt_nilai1 = 0, float l_flt_nilai2 = 0) {
+	
+	float l_flt_hasil = l_flt_nilai1 * l_flt_nilai2;
+	
+	return l_flt_hasil;
+}
+
+float fg_flt_bagi(float l_flt_nilai1 = 0, float l_flt_nilai2 = 0) {
+	
+	float l_flt_hasil = l_flt_nilai1 / l_flt_nilai2;
+	
+	return l_flt_hasil;
+}
+
+float fg_flt_modulus(int l_flt_nilai1 = 0, int l_flt_nilai2 = 0) {
+	
+	float l_flt_hasil = l_flt_nilai1 % l_flt_nilai2;
+	
+	return l_flt_hasil;
+}
+
+void fg_output(string l_str_operasi, float l_int_hasil) {
+	cout<<"Hasil dari "<<l_str_operasi<<" "<<g_flt_nilai1<<" dan "<<g_flt_nilai2<<" adalah "<<l_int_hasil<<endl;
+}
+
+int main() {
     
-    cout<<"Hasil dari Penjumlahan "<<g_flt_nilai1<<" dan "<<g_flt_nilai2<<" adalah "<<g_flt_hasil<<endl;
+    while( g_int_status ) {
+    	
+    	cout<<"Masukkan Menu(+|-|/|*|%|c [untuk berhenti]): ";
+    	cin>>g_str_menu;
+    	
+    	if ( g_str_menu == "+" ) {
+    		
+    		fg_inputNilai();
+    		
+    		g_flt_hasil = fg_flt_tambah( g_flt_nilai1, g_flt_nilai2 );
+    		
+		    fg_output("penjumlahan", g_flt_hasil);
+		    
+		} else if ( g_str_menu == "-" ) {
+			
+			fg_inputNilai();
+			
+			g_flt_hasil = fg_flt_kurang( g_flt_nilai1, g_flt_nilai2 );
+			
+		    fg_output("pegurangan", g_flt_hasil);
+		    
+		} else if ( g_str_menu == "*" ) {
+			
+			fg_inputNilai();
+			
+			g_flt_hasil = fg_flt_kali( g_flt_nilai1, g_flt_nilai2 );
+			
+		    fg_output("perkalian", g_flt_hasil);
+		    
+		} else if ( g_str_menu == "/" ) {
+			
+			fg_inputNilai();
+			
+			g_flt_hasil = fg_flt_bagi( g_flt_nilai1, g_flt_nilai2 );
+			
+		    fg_output("pembagian", g_flt_hasil);
+		    
+		} else if ( g_str_menu == "%" ) {
+			
+			fg_inputNilai();
+			
+			g_flt_hasil = fg_flt_modulus( g_flt_nilai1, g_flt_nilai2 );
+			
+		    fg_output("modulus", g_flt_hasil);
+		    
+		} else if ( g_str_menu == "c" ) {
+			
+			cout<<"Program Dihentikan"<<endl;
+			
+			g_int_status = FALSE;
+			
+		} else {
+			
+			cout<<"Inputan Tidak Valid"<<endl;
+			
+		}
+	}
     
     return 0;
 }
 
 /*
-Buatlah program kalkulator sederhana (Tambah, Kurang, Bagi, Kali, Modulus, Akar, Pangkat)
-Buatlah Masing 
+Buatlah program kalkulator sederhana (Tambah, Kurang, Bagi, Kali, Modulus)
+Buatlah Masing-masing fungsi untuk setiap operasi
+Program dapat berulang sampai dihentikan oleh user
+lalu user juga dapat memilih menu operasi
 */
