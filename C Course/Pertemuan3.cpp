@@ -39,7 +39,7 @@ Besar Diskon
 PROSES:
 Akumulasi jumlah harga makanan, diskon dan PPN
 
-OUTPUT
+OUTPUT:
 Hasil Harga Total
 
 RUMUS:
