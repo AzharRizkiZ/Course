@@ -113,3 +113,43 @@ int main() {
 	
 	return 0;
 }
+
+
+// Struct & Union
+// Struct merupakan tipe data object yang berisi banyak data dan memungkinkan memiliki tipe data berbeda
+// (alamat berbeda setiap variabel yang ada didalam struct)
+// Union merupkana tipe data object yang digunakan ketika terjadi dua perbedaan opsi,
+// meskipun bisa menyimpan banyak data, tetapi union menyimpannya didalam satu alamat yang sama
+
+union senjata {
+	int pisau;
+	int pistol;
+	int riffles;
+};
+
+struct dataDiri {
+	string nama;
+	string asal;
+	string sekolah;
+};
+
+struct dataDiri g_struct_saya;
+union senjata g_un_gunakanSenjata;
+
+int main() {
+	
+	g_un_gunakanSenjata.pisau = 100;
+	
+	cout<<"Union"<<endl; //Hanya dapat memiliki isi di salah satu member yang digunakan (alasannya karena menggunakan alamat memori yang sama)
+	
+	cout<<g_un_gunakanSenjata.pisau<<endl;
+	cout<<g_un_gunakanSenjata.pistol<<endl;
+	cout<<g_un_gunakanSenjata.riffles<<endl;
+	
+	cout<<"Struct"<<endl; //Semua member dapat memiliki isi karena setiap member alamatnya berbeda
+
+	g_struct_saya.nama = "Azhar";
+	g_struct_saya.asal = "Bintaro";
+	g_struct_saya.sekolah = "Binus";
+	
+}
