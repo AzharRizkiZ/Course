@@ -153,3 +153,74 @@ int main() {
 	g_struct_saya.sekolah = "Binus";
 	
 }
+
+#include <iostream>
+#include <math.h>
+#include <stdio.h>
+using namespace std;
+
+#define max_index 5
+
+struct database{
+  string email;
+  string username;
+  string password;
+};
+struct database g_struct_login[max_index] = {
+  {"email1@example.com", "admin1", "min1"}, //0
+  {"email2@example.com", "admin2", "min2"}, //1
+  {"email3@example.com", "admin3", "min3"}, //2
+  {"email4@example.com", "admin4", "min4"}, //3
+  {"email5@example.com", "admin5", "min5"}, //4
+};
+
+int main() {
+  string l_str_email;
+  string l_str_username;
+  string l_str_password;
+  int l_choice;
+  unsigned char l_char_status = true;
+  unsigned char l_char_loginSuccess = false;
+  
+  while(l_char_status){
+    cout<<"Choose Credentials: "<<endl;
+    cout<<"1. Email: "<<endl;
+    cout<<"2. Username: "<<endl;
+    cout<<"Pick Credential Type (1/2) : "<<ends;
+    cin>>l_choice;
+    
+    if(l_choice == 1) {
+      cout<<"Enter Email: "<<ends;
+      cin>>l_str_email;
+      cout<<"Enter Password: "<<ends;
+      cin>>l_str_password;
+      for (int i = 0; i< max_index; i++){
+        if(l_str_email == g_struct_login[i].email && l_str_password == g_struct_login[i].password){
+          l_char_loginSuccess = true;
+          l_char_status = false;
+        } 
+      }
+    } else if (l_choice == 2){
+      cout<<"Enter Username: "<<ends;
+      cin>>l_str_username;
+      cout<<"Enter Password: "<<ends;
+      cin>>l_str_password;
+      for (int i = 0; i< max_index; i++){
+        if(l_str_username == g_struct_login[i].username && l_str_password == g_struct_login[i].password){
+          l_char_loginSuccess = true;
+          l_char_status = false;
+        } 
+       }
+    } else{
+      cout<<"Invalid Choice"<<endl;
+    }
+  }
+  if (l_char_loginSuccess){
+    cout<<"Login Successful"<<ends;
+  } 
+}
+
+// Buatlah sistem login dimana terdapat dua menu pilihan login menggunakan email/username
+// Jika email/username atau password salah maka, program akan terus berulang
+// dan Jika email/username dan password benar maka akan muncul tampilan login berhasil
+// Buat fungsi untuk melakukan input dan cek validasi email/username dan password
