@@ -85,3 +85,31 @@ int main() {
 	
 	return 0;
 }
+
+
+// Address adalah Alamat Memori
+// Pointer Pengalihfungsi sebuah variabel dari a ke b ataupun sebaliknya
+
+int g_int_contoh = 10;
+
+int main() {
+	
+	printf("Nilainya si G = %i\n", g_int_contoh); //Yang dicetak merupakan Nilai
+	printf("Alamat Memorinya si G = %i\n", &g_int_contoh); //Yang dicetak merupakan alamat memori
+	
+	int *l_int_penampung = &g_int_contoh;
+	
+	printf("Alamat Memori yang dialihfungsikan si L = %i\n", l_int_penampung); //Yang Dicetak Alamat Memori g_int_contoh
+	printf("Alamat Memorinya Aslinya si L = %i\n", &l_int_penampung); //Yang Dicetak Memori Asli si L
+	printf("Nilainya si L = %i\n", *l_int_penampung); //Yang Dicetak sudah pasti nilai g_int_contoh
+	
+	int *l_int_penampung2;
+	
+	l_int_penampung2 = l_int_penampung
+	
+	printf("Alamat Memori yang dialihfungsikan si L2 = %i\n", l_int_penampung2); //Yang Dicetak Alamat Memori g_int_contoh
+	printf("Alamat Memorinya Aslinya si L2 = %i\n", &l_int_penampung2); //Yang Dicetak Memori Asli si L2
+	printf("Nilainya si L2 = %i\n", *l_int_penampung2); //Yang Dicetak sudah pasti nilai g_int_contoh
+	
+	return 0;
+}
