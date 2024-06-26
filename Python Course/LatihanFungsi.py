@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Jun 22 13:39:05 2024
-
-@author: binuscenter
-"""
-
 def fg_banner():
     print("""
 ---------------------
