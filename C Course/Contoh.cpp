@@ -53,3 +53,18 @@ int fungsi(int parameter1, parameter2) {
 }
 
 
+
+#include <iostream>
+
+int main() {
+    // Write C++ code here
+    printf("**********    *          *         ******\n");
+    printf("*        *   * *        * *       *      *\n");
+    printf("*        *  *   *      *   *     *        *\n");
+    printf("*        * *     *    *     *    *        *\n");
+    printf("*        *  *   *    *       *   *        *\n");
+    printf("*        *   * *    *         *   *      *\n");
+    printf("**********    *    *************   ******\n");
+}
+
+
