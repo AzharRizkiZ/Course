@@ -95,6 +95,36 @@ pengajar demi pencapaian proses belajar mengajar yang optimal.
 
 
 
+from datetime import datetime
+from pytz import timezone
+import re
+
+def generate():
+    
+    date = datetime.now()
+    
+    hours = date.hour + 7
+    
+    if ( hours == 31 ):
+        hours = 0 + 7
+    elif ( hours == 30 ):
+        hours = -1 + 7
+    elif ( hours == 29 ):
+        hours = -2 + 7
+    
+    minutes = date.minute
+    
+    seconds = date.second
+    
+    tz = timezone("Etc/GMT+7")
+    new_date = date.replace(tzinfo=tz)
+    
+    readme_replacement = f'Updated: {new_date.strftime("%d/%m/%Y")}' + ' ' + str(hours) + ':' + str(minutes) + ':' + str(seconds) + ' Western Indonesia Time'
+    
+    print(readme_replacement)
+
+generate()
+
 
 
 
