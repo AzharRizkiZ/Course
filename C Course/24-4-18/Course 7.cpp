@@ -51,12 +51,12 @@ void fg_showList() {
 void fg_deleteList() {
 	int l_int_index;
 	
-	cout<<"Masukkan Index yang Ingin diganti: ";
+	cout<<"Masukkan Index yang Ingin dihapus: ";
 	cin>>l_int_index;
 	
 	g_str_list[l_int_index] = "";
 	
-	cout<<"Data Berhasil Dihapus";
+	cout<<"Data Berhasil Dihapus"<<endl;
 }
 
 int main() {
@@ -78,9 +78,11 @@ int main() {
 			fg_deleteList();
 		} else if ( g_int_menu == 0 ) {
 			g_int_status = false;
+			cout<<"Terima Kasih telah menggunakan program saya"<<endl;
 		} else {
 			cout<<"Inputan Tidak Valid"<<endl;
 		}
+		cout<<endl;
 	}
 	
 	return 0;
