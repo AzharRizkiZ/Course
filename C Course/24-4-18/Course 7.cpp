@@ -163,63 +163,78 @@ using namespace std;
 
 #define max_index 5
 
-struct database{
-  string email;
-  string username;
-  string password;
-};
-struct database g_struct_login[max_index] = {
-  {"email1@example.com", "admin1", "min1"}, //0
-  {"email2@example.com", "admin2", "min2"}, //1
-  {"email3@example.com", "admin3", "min3"}, //2
-  {"email4@example.com", "admin4", "min4"}, //3
-  {"email5@example.com", "admin5", "min5"}, //4
+typedef struct{
+	string email;
+	string username;
+	string password;
+} database;
+
+database g_struct_dataUser[max_index] = {
+	/* EMAIL               | USERNAME        | PASSWORD */
+	{ "email1@example.com", "administrator1", "12345"  }, //Index 0
+	{ "email2@example.com", "administrator2", "12345"  }, //Index 1
+	{      "joe@woilu.com",          "Admin", "admin"  }, //Index 2
+	{ "email3@example.com", "administrator2", "12345"  }, //Index 3
+	{       "ai@woilu.com",      "Moderator", "momod"  }, //Index 4
 };
 
+char fg_tf_auth( string l_str_emailOrUsername, string l_str_password, char l_tf_loginStatus ){
+
+	for (int i = 0; i < max_index; i++){
+
+	    if ( ( ( l_str_emailOrUsername == g_struct_dataUser[i].email    )
+                || ( l_str_emailOrUsername == g_struct_dataUser[i].username ) )
+              && ( l_str_password == g_struct_dataUser[i].password            ) ){
+
+	        l_tf_loginStatus = true;
+
+	    } else {
+
+	        /* Do Nothing */
+
+            }
+	}
+
+	return l_tf_loginStatus;
+
+}
+
+char fg_tf_login( char l_tf_loginStatus ){
+
+	string l_str_emailOrUsername;
+	string l_str_password;
+
+	cout<<"Enter Email/Username: "<<ends;
+	cin>>l_str_emailOrUsername;
+	cout<<"Enter Password: "<<ends;
+	cin>>l_str_password;
+
+	l_tf_loginStatus = fg_tf_auth( l_str_emailOrUsername, l_str_password, l_tf_loginStatus );
+
+	return l_tf_loginStatus;
+}
+
 int main() {
-  string l_str_email;
-  string l_str_username;
-  string l_str_password;
-  int l_choice;
-  unsigned char l_char_status = true;
-  unsigned char l_char_loginSuccess = false;
-  
-  while(l_char_status){
-    cout<<"Choose Credentials: "<<endl;
-    cout<<"1. Email: "<<endl;
-    cout<<"2. Username: "<<endl;
-    cout<<"Pick Credential Type (1/2) : "<<ends;
-    cin>>l_choice;
-    
-    if(l_choice == 1) {
-      cout<<"Enter Email: "<<ends;
-      cin>>l_str_email;
-      cout<<"Enter Password: "<<ends;
-      cin>>l_str_password;
-      for (int i = 0; i< max_index; i++){
-        if(l_str_email == g_struct_login[i].email && l_str_password == g_struct_login[i].password){
-          l_char_loginSuccess = true;
-          l_char_status = false;
-        } 
-      }
-    } else if (l_choice == 2){
-      cout<<"Enter Username: "<<ends;
-      cin>>l_str_username;
-      cout<<"Enter Password: "<<ends;
-      cin>>l_str_password;
-      for (int i = 0; i< max_index; i++){
-        if(l_str_username == g_struct_login[i].username && l_str_password == g_struct_login[i].password){
-          l_char_loginSuccess = true;
-          l_char_status = false;
-        } 
-       }
-    } else{
-      cout<<"Invalid Choice"<<endl;
-    }
-  }
-  if (l_char_loginSuccess){
-    cout<<"Login Successful"<<ends;
-  } 
+
+	int l_int_choice;
+	unsigned char l_tf_whileStatus = true;
+	unsigned char l_tf_loginStatus = false;
+
+	while( l_tf_whileStatus ){
+
+            l_tf_loginStatus = fg_tf_login( l_tf_loginStatus );
+    		
+  	    if ( l_tf_loginStatus ){
+
+		l_tf_whileStatus = false;
+    	        cout<<"Login Successful"<<endl;
+
+  	    } else {
+
+		cout<<"Email/Username or Password Wrong, Please try Again"<<endl;
+
+	    }
+	}
 }
 
 // Buatlah sistem login dimana terdapat dua menu pilihan login menggunakan email/username
